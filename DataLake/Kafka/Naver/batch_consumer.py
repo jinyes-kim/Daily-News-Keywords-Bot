@@ -3,7 +3,7 @@ from kafka import KafkaConsumer
 broker = ['jinyes-server:9092']
 topic = "news_test"
 consumer = KafkaConsumer(topic,
-                         group_id="group_1",
+                         group_id="group_2",
                          bootstrap_servers=broker,
                          auto_offset_reset="earliest")
 
@@ -14,3 +14,4 @@ try:
 
 except KeyboardInterrupt:
     exit(0)
+    
