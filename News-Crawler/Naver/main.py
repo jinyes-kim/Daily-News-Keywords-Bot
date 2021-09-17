@@ -1,34 +1,37 @@
-from naver_news.news_crawler import *
+from naver_news.preprocessing import *
+from naver_news.crawler import *
+from naver_news.avro_schema import *
 from datetime import datetime
-from kafka import KafkaProducer
 import json
 import time
 
+# Static Variable
+today = datetime.now().strftime("%Y%m%d")
+file = json.load(open("info/category.json", 'r'))
+
 
 def main():
-    today = datetime.now().strftime("%Y%m%d")
-    file = json.load(open("./data/category.json", 'r'))
+    records = []
     subject_list = file["keywords"]
-
     for subject in subject_list:
         specific_subject_list = file["specific_keywords"][subject]
         for specific_subject in specific_subject_list:
             category1 = file["keyword_code"][subject]
             category2 = file["specific_keyword_code"][specific_subject]
             try:
-                raw = extract_article(date=today, category1=category1, category2=category2)
-                news_list = preprocess_article(raw)
+                raw = extract_news(date=today, category1=category1, category2=category2)
+                news_list = extract_news_title(raw)
             except Exception as Error:
-                # slack으로 에러 발생한 지점 전송
-                print(Error)
+                print(Error)    # slack 에러 발생한 지점 전송
                 continue
 
-            for news in news_list:
-                data = ','.join([today, subject, specific_subject, news[0], news[1]])
-                print(data)
-                # data로 카프카에 전송하기
+            for record in news_list:
+                title = remove_quot(record[0])
+                url = record[1]
+                records.append(to_json(today, subject, specific_subject, title, url))
 
-            time.sleep(2)
+            time.sleep(1)
+    to_avro(today, records)
 
 
 if __name__ == "__main__":
