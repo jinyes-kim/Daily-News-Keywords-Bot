@@ -1,25 +1,12 @@
 from kafka import KafkaProducer
-from fastavro import reader
+from datetime import datetime
 
-
-# Kafka info
-broker = ["192.168.0.9:9092"]
+broker = ["jinyes-server:9092"]
 topic = "news_test"
 producer = KafkaProducer(bootstrap_servers=broker)
+today = datetime.now().strftime("%Y%m%d")
 
-
-with open('/Users/jinyes/git/Daily-News-Keywords-Bot/Data/20210917.avro', 'rb') as fo:
-    avro_reader = reader(fo)
-    for record in avro_reader:
-        producer.send(topic, record)
+with open("/Users/jinyes/git/Daily-News-Keywords-Bot/Data/{}.txt".format(today)) as file:
+    for record in file:
+        producer.send(topic=topic, value=record.encode("utf-8"))
         producer.flush()
-
-"""
-avro 파일 읽어서
-그 파일을 고대로 카프카에 전송하고
-컨슈머는 다시 읽어서 Hbase로 저장하고
-Hbase -> HDFS, ES 저장 
-
-"""
-
-
