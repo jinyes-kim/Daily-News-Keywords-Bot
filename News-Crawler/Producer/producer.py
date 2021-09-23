@@ -25,12 +25,13 @@ def to_bson(data):
 def main():
     dataset = []
     today = datetime.now().strftime("%Y%m%d")
-    with open("/Users/jinyes/git/Daily-News-Keywords-Bot/Data/{}.txt".format(today), 'r') as records:
-        for record in records:
-            doc = to_bson(record)
-            dataset.append(doc)
+    for portal in ["NAVER"]:
+        with open("/Users/jinyes/git/Daily-News-Keywords-Bot/Data/{}{}.txt".format(portal, today), 'r') as records:
+            for record in records:
+                doc = to_bson(record)
+                dataset.append(doc)
 
-    db.news_test.insert_many(dataset) # collection 네임 수정
+        db.news_test.insert_many(dataset)   # collection 네임 수정
 
 
 if __name__ == "__main__":
