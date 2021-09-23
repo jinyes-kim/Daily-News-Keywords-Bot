@@ -6,7 +6,6 @@ client = MongoClient(host="jinyes-server",
                      port=27017,
                      username="jinyes",
                      password=pw)
-
 db = client.news
 
 
