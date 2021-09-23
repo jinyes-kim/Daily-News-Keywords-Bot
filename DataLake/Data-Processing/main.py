@@ -23,11 +23,5 @@ for idx, record in enumerate(records):
     title = record["title"]
     noun = okt.nouns(title)
     print(subject, specific_subject, title, noun)
-
-    """
-    엘라스틱 서치의 도큐먼트 큰 범주에 단어를 삽입하는 방식으로 진행
-    
-    """
-
     if idx == 100:
         break
