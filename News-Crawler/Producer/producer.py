@@ -23,8 +23,8 @@ def to_bson(data):
 
 
 def main():
-    today = datetime.now().strftime("%Y%m%d")
     dataset = []
+    today = datetime.now().strftime("%Y%m%d")
     with open("/Users/jinyes/git/Daily-News-Keywords-Bot/Data/{}.txt".format(today), 'r') as records:
         for record in records:
             doc = to_bson(record)
