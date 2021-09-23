@@ -27,7 +27,7 @@ def main():
 
             for record in news_list:
                 title = remove_quot(record[0])
-성                url = record[1].replace("amp;", '')
+                url = record[1].replace("amp;", '')
                 records.append([today, subject, specific_subject, title, url])
             time.sleep(1)
 
