@@ -25,7 +25,9 @@ def to_bson(data):
 def main():
     dataset = []
     today = datetime.now().strftime("%Y%m%d")
-    for portal in ["NAVER"]:
+    portal_list = ["NAVER"]
+
+    for portal in portal_list:
         with open("/Users/jinyes/git/Daily-News-Keywords-Bot/Data/{}{}.txt".format(portal, today), 'r') as records:
             for record in records:
                 doc = to_bson(record)
