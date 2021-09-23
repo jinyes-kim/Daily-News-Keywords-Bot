@@ -30,7 +30,7 @@ def main():
             doc = to_bson(record)
             dataset.append(doc)
 
-    db.news_test.insert_many(dataset)
+    db.news_test.insert_many(dataset) # collection 네임 수정
 
 
 if __name__ == "__main__":
