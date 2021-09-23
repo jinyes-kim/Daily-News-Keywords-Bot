@@ -27,11 +27,9 @@ def main():
 
             for record in news_list:
                 title = remove_quot(record[0])
-                url = record[1]
+성                url = record[1].replace("amp;", '')
                 records.append([today, subject, specific_subject, title, url])
             time.sleep(1)
-            break
-        break
 
     with open("/Users/jinyes/git/Daily-News-Keywords-Bot/Data/{}.txt".format(today), "w") as out:
         for record in records:
