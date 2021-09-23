@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 from datetime import datetime
-from password import pw
 
+pw = open("/Users/jinyes/git/Daily-News-Keywords-Bot/pw.txt", 'r').read()
 client = MongoClient(host="jinyes-server",
                      port=27017,
                      username="jinyes",
