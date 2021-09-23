@@ -31,7 +31,7 @@ def main():
                 records.append([today, subject, specific_subject, title, url])
             time.sleep(1)
 
-    with open("/Users/jinyes/git/Daily-News-Keywords-Bot/Data/{}.txt".format(today), "w") as out:
+    with open("/Users/jinyes/git/Daily-News-Keywords-Bot/Data/NAVER{}.txt".format(today), "w") as out:
         for record in records:
             raw = ','.join(record)
             out.write(raw+'\n')
