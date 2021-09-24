@@ -10,8 +10,8 @@ def extract_news(date, category1, category2):
     request = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
     soup = BeautifulSoup(request.text, "html.parser")
     last_page = soup.select(".paging > a")
-    target = (".type06_headline > li > dl > dt:nth-child(1) > a",
-              ".type06 > li > dl > dt:nth-child(1) > a")
+    target = (".type06_headline > li > dl > dt:nth-of-type(1) > a",
+              ".type06 > li > dl > dt:nth-of-type(1) > a")
 
     # 섹션별 뉴스 데이터 수집
     result = []
