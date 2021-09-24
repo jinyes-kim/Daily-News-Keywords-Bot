@@ -14,3 +14,4 @@ def extract_noun(records):
 
     return documents
 
+
