@@ -1,6 +1,6 @@
-from lib.mongo_consumer import consume
-from lib.noun_extractor import extract_noun
-from lib.elasticsearch import *
+from library.mongo_consumer import consume
+from library.noun_extractor import extract_noun
+from library.elasticsearch import *
 from datetime import datetime
 from pprint import pprint
 
