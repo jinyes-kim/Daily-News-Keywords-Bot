@@ -6,7 +6,7 @@
 
 ---
 
-# 서비스 아키텍처
+## 서비스 아키텍처
 ![Daily-Keywords-Bot](https://user-images.githubusercontent.com/54028026/135100050-1a99aae9-1199-4c5f-8747-0822ce464cb9.png)
 
 ---
