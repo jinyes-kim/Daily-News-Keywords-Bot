@@ -28,6 +28,8 @@ def main():
         for keyword, cnt in rank_list:
             if cnt >= limit:
                 msg += "{}: {}회 등장\n".format(keyword, cnt)
+            else:
+                break
 
         # Send Message
         slack.post_message("#news", msg)
