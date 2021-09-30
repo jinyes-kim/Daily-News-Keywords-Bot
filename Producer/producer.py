@@ -28,7 +28,7 @@ def main():
     portal_list = ["NAVER"]
 
     for portal in portal_list:
-        with open("/Users/jinyes/git/Daily-News-Keywords-Bot/Data/{}{}.txt".format(portal, today), 'r') as records:
+        with open("../Data/{}{}.txt".format(portal, today), 'r') as records:
             for record in records:
                 doc = to_bson(record)
                 dataset.append(doc)
