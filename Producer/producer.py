@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 from datetime import datetime
 
-pw = open("/pw.txt", 'r').read()
+pw = open("/Users/jinyes/git/Daily-News-Keywords-Bot/pw.txt", 'r').read()
 client = MongoClient(host="jinyes-server",
                      port=27017,
                      username="jinyes",
@@ -24,7 +24,7 @@ def to_bson(data):
 
 def main():
     dataset = []
-    today = datetime.now().strftime("%Y%m%d")
+    today = str(int(datetime.now().strftime("%Y%m%d"))-1)
     portal_list = ["NAVER"]
 
     for portal in portal_list:
