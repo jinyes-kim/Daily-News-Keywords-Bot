@@ -6,7 +6,7 @@ from pprint import pprint
 
 
 # Consume Data from MongoDB
-today = datetime.now().strftime("%Y%m%d")
+today = str(int(datetime.now().strftime("%Y%m%d"))-1)
 bson_documents = consume("news", "news_test", today)
 
 

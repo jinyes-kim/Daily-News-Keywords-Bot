@@ -6,8 +6,8 @@ import time
 
 
 # Static Variable
-today = datetime.now().strftime("%Y%m%d")
-file = json.load(open("/Code/News-Crawler/Naver/info/category.json", 'r'))
+today = str(int(datetime.now().strftime("%Y%m%d"))-1)
+file = json.load(open("/Users/jinyes/git/Daily-News-Keywords-Bot/Crawler/Naver/info/category.json", 'r'))
 
 
 def main():
@@ -22,7 +22,6 @@ def main():
                 raw = extract_news(date=today, category1=category1, category2=category2)
                 news_list = extract_news_title(raw)
             except Exception as Error:
-                print(Error)    # slack 에러 발생한 지점 전송
                 continue
 
             for record in news_list:
