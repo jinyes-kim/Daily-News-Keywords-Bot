@@ -3,12 +3,12 @@ from library.es_query import *
 from collections import defaultdict
 from datetime import datetime
 import json
-from pprint import pprint
 
 
 def main():
-    slack.post_message("#news", "---{}---".format(datetime.now().strftime("%Y년 %m월 %d일")))
     today = str(int(datetime.now().strftime("%Y%m%d"))-1)
+    slack.post_message("#news", "---{}---".format(datetime.now().strftime("%Y년 %m월 %d일")))
+
     with open("/Users/jinyes/git/Daily-News-Keywords-Bot/Crawler/Naver/info/category.json") as catregory:
         file = json.load(catregory)
 
@@ -41,8 +41,7 @@ def main():
                     break
 
             # Send Message
-            slack.post_message("#news", msg)
-            slack.post_message("#news", "\n")
+            slack.post_message("#news", msg+"\n")
 
 
 if __name__ == "__main__":
