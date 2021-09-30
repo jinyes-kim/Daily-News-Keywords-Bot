@@ -9,7 +9,7 @@ def main():
     today = str(int(datetime.now().strftime("%Y%m%d"))-1)
     slack.post_message("#news", "---{}---".format(datetime.now().strftime("%Y년 %m월 %d일")))
 
-    with open("/Users/jinyes/git/Daily-News-Keywords-Bot/Crawler/Naver/info/category.json") as catregory:
+    with open("../Crawler/Naver/info/category.json", 'r') as catregory:
         file = json.load(catregory)
 
     for subject in file["keywords"]:
