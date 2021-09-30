@@ -9,19 +9,19 @@ dag = DAG(dag_id='Daily-News-Keywords',
            schedule_interval='@daily')
 
 t1 = BashOperator(task_id="crawler",
-                  bash_command="python3 /home/jinyes/Daily-Keywords-Bot/Crawler/main.py",
+                  bash_command="python3 ../Crawler/main.py",
                   dag=dag)
 
 t2 = BashOperator(task_id="producer",
-                  bash_command="python3 /home/jinyes/Daily-Keywords-Bot/Producer/producer.py",
+                  bash_command="python3 ../Producer/producer.py",
                   dag=dag)
 
 t3 = BashOperator(task_id="consumer",
-                  bash_command="python3 /home/jinyes/Daily-Keywords-Bot/Consumer/main.py",
+                  bash_command="python3 ../Consumer/main.py",
                   dag=dag)
 
 t4 = BashOperator(task_id="slack-bot",
-                  bash_command='python3 /home/jinyes/Daily-Keywords-Bot/Bot/main.py',
+                  bash_command='python3 ../Bot/main.py',
                   dag=dag)
 
 t1 >> t2 >> t3 >> t4
