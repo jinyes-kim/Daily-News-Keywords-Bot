@@ -7,7 +7,7 @@ import time
 
 # Static Variable
 today = str(int(datetime.now().strftime("%Y%m%d"))-1)
-file = json.load(open("./info/category.json", 'r'))
+file = json.load(open("../info/category.json", 'r'))
 
 
 def main():
