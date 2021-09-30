@@ -1,17 +1,21 @@
 from library import slack
 from library.es_query import *
 from collections import defaultdict
+from datetime import datetime
 import json
+from pprint import pprint
 
 
 def main():
+    slack.post_message("#news", "---{}---".format(datetime.now().strftime("%Y년 %m월 %d일")))
+    today = str(int(datetime.now().strftime("%Y%m%d"))-1)
     with open("/Users/jinyes/git/Daily-News-Keywords-Bot/Crawler/Naver/info/category.json") as catregory:
         file = json.load(catregory)
 
     for subject in file["keywords"]:
         for specific_subject in file["specific_keywords"][subject]:
             # Read Data
-            records = request_data("20210924", specific_subject)
+            records = request_data(today, specific_subject)
 
             # Count Nouns
             noun_dict = defaultdict(int)
@@ -38,6 +42,7 @@ def main():
 
             # Send Message
             slack.post_message("#news", msg)
+            slack.post_message("#news", "\n")
 
 
 if __name__ == "__main__":
