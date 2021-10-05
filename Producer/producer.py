@@ -13,10 +13,11 @@ def to_bson(data):
     raw = data.split(",")
     doc = {
         "date": raw[0],
-        "subject": raw[1].strip(),
-        "specific_subject": raw[2].strip(),
-        "title": raw[3].strip(),
-        "url": raw[4].strip(),
+        "portal": raw[1],
+        "subject": raw[2].strip(),
+        "specific_subject": raw[3].strip(),
+        "title": raw[4].strip(),
+        "url": raw[5].strip(),
     }
 
     return doc
@@ -32,7 +33,7 @@ def main():
                 doc = to_bson(record)
                 dataset.append(doc)
 
-        db.news_test.insert_many(dataset)   # collection 네임 수정
+        db.news.insert_many(dataset)   # collection 네임 수정
 
 
 if __name__ == "__main__":
