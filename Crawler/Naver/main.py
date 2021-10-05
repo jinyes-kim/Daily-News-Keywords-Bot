@@ -6,7 +6,7 @@ import time
 
 
 # Static Variable
-today = str(int(datetime.now().strftime("%Y%m%d"))-1)
+today = datetime.now().strftime("%Y%m%d")
 file = json.load(open("/home/jinyes/Daily-News-Keywords-Bot/Crawler/Naver/info/category.json", 'r'))
 
 
