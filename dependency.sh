@@ -3,3 +3,7 @@ pip3 install pymongo
 pip3 install apache-airflow
 pip3 install konlpy
 pip3 install elasticsearch
+pip3 uninstall tweepy
+pip3 install tweepy===3.1.0
+pip3 uninstall six
+pip3 install six===1.12.0
