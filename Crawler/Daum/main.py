@@ -5,7 +5,7 @@ import json
 import time
 
 # Static variable
-file = json.load(open("info/category.json", 'r'))
+file = json.load(open("/home/jinyes/Daily-News-Keywords-Bot/Crawler/Naver/info/category.json", 'r'))
 today = datetime.now().strftime("%Y%m%d")
 
 
@@ -32,7 +32,7 @@ def main():
 
             time.sleep(1)
 
-    with open("../../Data/DAUM{}.txt".format(today), "w") as out:
+    with open("/home/jinyes/Daily-News-Keywords-Bot/Data/DAUM{}.txt".format(today), "w") as out:
         for record in records:
             raw = ','.join(record)
             out.write(raw+'\n')

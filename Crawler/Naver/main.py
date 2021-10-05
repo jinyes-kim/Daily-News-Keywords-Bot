@@ -7,7 +7,7 @@ import time
 
 # Static Variable
 today = str(int(datetime.now().strftime("%Y%m%d"))-1)
-file = json.load(open("../info/category.json", 'r'))
+file = json.load(open("/home/jinyes/Daily-News-Keywords-Bot/Crawler/Naver/info/category.json", 'r'))
 
 
 def main():
@@ -30,7 +30,7 @@ def main():
                 records.append([today, "NAVER", subject, specific_subject, title, url])
             time.sleep(1)
 
-    with open("../../Data/NAVER{}.txt".format(today), "w") as out:
+    with open("/home/jinyes/Daily-News-Keywords-Bot/Data/NAVER{}.txt".format(today), "w") as out:
         for record in records:
             raw = ','.join(record)
             out.write(raw+'\n')

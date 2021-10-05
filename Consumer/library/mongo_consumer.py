@@ -1,7 +1,6 @@
 from pymongo import MongoClient
 
-pw = open("../../pw.txt", 'r').read()
-open("../../pw.txt", 'r')
+pw = open("/home/jinyes/Daily-News-Keywords-Bot/pw.txt", 'r').read()
 client = MongoClient(host="jinyes-server",
                      port=27017,
                      username="root",

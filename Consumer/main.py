@@ -2,12 +2,11 @@ from library.mongo_consumer import consume
 from library.noun_extractor import extract_noun
 from library.elasticsearch import *
 from datetime import datetime
-from pprint import pprint
 
 
 # Consume Data from MongoDB
-today = str(int(datetime.now().strftime("%Y%m%d"))-1)
-bson_documents = consume("news", "news_test", today)
+today = datetime.now().strftime("%Y%m%d")
+bson_documents = consume("news", "news", today)
 
 
 # Extract Noun using Okt
