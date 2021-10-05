@@ -28,7 +28,7 @@ def main():
                 title = record[0]
                 url = record[1]
                 print([keyword, specific_keyword, remove_quot(title), url])
-                records.append([keyword, specific_keyword, remove_quot(title), url])
+                records.append([today, keyword, specific_keyword, remove_quot(title), url])
 
             time.sleep(1)
             break

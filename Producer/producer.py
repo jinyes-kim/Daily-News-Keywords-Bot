@@ -25,7 +25,7 @@ def to_bson(data):
 def main():
     dataset = []
     today = str(int(datetime.now().strftime("%Y%m%d"))-1)
-    portal_list = ["NAVER"]
+    portal_list = ["NAVER", "DAUM"]
 
     for portal in portal_list:
         with open("../Data/{}{}.txt".format(portal, today), 'r') as records:
