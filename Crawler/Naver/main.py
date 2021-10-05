@@ -27,7 +27,7 @@ def main():
             for record in news_list:
                 title = remove_quot(record[0])
                 url = record[1].replace("amp;", '')
-                records.append([today, subject, specific_subject, title, url])
+                records.append([today, "NAVER", subject, specific_subject, title, url])
             time.sleep(1)
 
     with open("../../Data/NAVER{}.txt".format(today), "w") as out:
@@ -37,4 +37,6 @@ def main():
 
 
 if __name__ == "__main__":
+    print("[{}] Start - NAVER news Crawler".format(datetime.now()))
     main()
+    print("[{}] Success - NAVER news Crawler".format(datetime.now()))

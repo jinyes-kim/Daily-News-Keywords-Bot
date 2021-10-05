@@ -28,11 +28,9 @@ def main():
                 title = record[0]
                 url = record[1]
                 print([keyword, specific_keyword, remove_quot(title), url])
-                records.append([today, keyword, specific_keyword, remove_quot(title), url])
+                records.append([today, "DAUM", keyword, specific_keyword, remove_quot(title), url])
 
             time.sleep(1)
-            break
-        break
 
     with open("../../Data/DAUM{}.txt".format(today), "w") as out:
         for record in records:
@@ -41,5 +39,6 @@ def main():
 
 
 if __name__ == "__main__":
-    print("[{}] Start Daum news Crawler".format(datetime.now()))
+    print("[{}] Start - DAUM news Crawler".format(datetime.now()))
     main()
+    print("[{}] Success - DAUM news Crawler".format(datetime.now()))
