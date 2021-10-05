@@ -6,7 +6,7 @@
 
 ---
 
-## 아키텍처
+## 데이터 파이프라인
 ![Daily-Keywords-Bot](https://user-images.githubusercontent.com/54028026/135100050-1a99aae9-1199-4c5f-8747-0822ce464cb9.png)
 
 ---
