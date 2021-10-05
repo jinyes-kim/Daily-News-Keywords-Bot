@@ -1,5 +1,5 @@
-from naver_news.preprocessing import *
-from naver_news.crawler import *
+from library.preprocessing import *
+from library.crawler import *
 from datetime import datetime
 import json
 import time

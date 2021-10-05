@@ -2,6 +2,11 @@ from bs4 import BeautifulSoup
 import time
 import requests
 
+"""
+코드 리팩토링 필요함
+뷰티풀 솝 적극 활용하기
+"""
+
 
 def extract_news(date, category1, category2):
     # 마지막 페이지 탐색
