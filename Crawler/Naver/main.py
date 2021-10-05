@@ -3,6 +3,7 @@ from library.crawler import *
 from datetime import datetime
 import json
 import time
+import logging
 
 
 # Static Variable
@@ -37,6 +38,6 @@ def main():
 
 
 if __name__ == "__main__":
-    print("[{}] Start - NAVER news Crawler".format(datetime.now()))
+    logging.info("[{}] Start - NAVER news Crawler".format(datetime.now()))
     main()
-    print("[{}] Success - NAVER news Crawler".format(datetime.now()))
+    logging.info("[{}] Success - NAVER news Crawler".format(datetime.now()))

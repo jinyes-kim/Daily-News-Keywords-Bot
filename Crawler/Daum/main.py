@@ -3,6 +3,7 @@ from library.preprocessing import *
 from datetime import datetime
 import json
 import time
+import logging
 
 # Static variable
 file = json.load(open("/home/jinyes/Daily-News-Keywords-Bot/Crawler/Naver/info/category.json", 'r'))
@@ -39,6 +40,6 @@ def main():
 
 
 if __name__ == "__main__":
-    print("[{}] Start - DAUM news Crawler".format(datetime.now()))
+    logging.info("[{}] Start - DAUM news Crawler".format(datetime.now()))
     main()
-    print("[{}] Success - DAUM news Crawler".format(datetime.now()))
+    logging.info("[{}] Success - DAUM news Crawler".format(datetime.now()))
