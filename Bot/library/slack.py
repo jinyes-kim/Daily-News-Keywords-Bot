@@ -1,6 +1,6 @@
 import requests
 
-token = open("/Users/jinyes/git/Daily-News-Keywords-Bot/Bot/token.txt").read()
+token = open("/home/jinyes/Daily-News-Keywords-Bot/Bot/token.txt").read()
 
 
 def post_message(channel, msg):

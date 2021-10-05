@@ -17,6 +17,7 @@ def to_document(bson, date):
         "_index": "news-test",
         "_source": {
             "subject": bson["subject"],
+            "portal": bson["portal"],
             "specific_subject": bson["specific_subject"],
             "title_noun": bson["title_noun_list"],
             "@timestamp": date
