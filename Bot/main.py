@@ -50,15 +50,19 @@ def daum():
     with open("/home/jinyes/Daily-News-Keywords-Bot/Crawler/DAUM/info/category.json", 'r') as catregory:
         file = json.load(catregory)
 
-    for keyword in file["keywords"]:
-        if keyword == "보도자료" or keyword == "자동생성기사":
-            specific_keyword_list = [None]
+    for subject in file["keywords"]:
+        if subject == "보도자료" or subject == "자동생성기사":
+            specific_subject_list = [None]
         else:
-            specific_keyword_list = file["specific_keywords"][keyword]
+            specific_subject_list = file["specific_keywords"][subject]
 
-        for specific_keyword in specific_keyword_list:
+        """
+        엘라스틱 서치에 None이 어떤 형식으로 저장되는지 파악하고
+        line 65 수정
+        """
+        for specific_subject in specific_subject_list:
             # Read Data
-            records = request_data(today, "DAUM", keyword, specific_keyword)
+            records = request_data(today, "DAUM", subject, specific_subject)
 
             # Count Nouns
             noun_dict = defaultdict(int)
@@ -76,7 +80,7 @@ def daum():
             limit = rank_list[2][1]
 
             # Result
-            msg = "[{}]\n".format(specific_keyword)
+            msg = "[{}]\n".format(specific_subject)
             for keyword, cnt in rank_list:
                 if cnt >= limit:
                     msg += "{}: {}회 등장\n".format(keyword, cnt)
@@ -88,8 +92,14 @@ def daum():
 
 
 def main():
-    naver()
-    daum()
+    try:
+        naver()
+    except Exception as error:
+        slack.post_message("#alert", "[{}]\n네이버 뉴스 슬랙 봇 이슈 발생\n\n{}".format(datetime.now(), error))
+    try:
+        daum()
+    except Exception as error:
+        slack.post_message("#alert", "[{}]\n다음 뉴스 슬랙 봇 이슈 발생\n\n{}".format(datetime.now(), error))
 
 
 if __name__ == "__main__":
