@@ -26,6 +26,7 @@ def main():
                 category2 = file["specific_subject_code"][specific_subject]
             else:
                 category2 = None
+                specific_subject = "null"
 
             records = extract_news(today, category1, category2)
 
