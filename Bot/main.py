@@ -16,7 +16,7 @@ def naver():
     for subject in file["keywords"]:
         for specific_subject in file["specific_keywords"][subject]:
             # Read Data
-            records = request_data(today, "NAVER", keyword, specific_subject)
+            records = request_data(today, "NAVER", subject, specific_subject)
 
             # Count Nouns
             noun_dict = defaultdict(int)
