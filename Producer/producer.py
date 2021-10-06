@@ -1,5 +1,6 @@
 from pymongo import MongoClient
 from datetime import datetime
+import logging
 
 pw = open("/home/jinyes/Daily-News-Keywords-Bot/pw.txt", 'r').read()
 client = MongoClient(host="jinyes-server",
@@ -33,8 +34,13 @@ def main():
                 doc = to_bson(record)
                 dataset.append(doc)
 
-        db.news.insert_many(dataset)   # collection 네임 수정
+        try:
+            db.news.insert_many(dataset, ordered=False)
+        except Exception as error:
+            logging.info("[{}] - {}".format(datetime.now(), error))
 
 
 if __name__ == "__main__":
+    logging.info("[{}] - Start Producer")
     main()
+    logging.info("[{}] - Success Produce")
