@@ -11,31 +11,30 @@ today = datetime.now().strftime("%Y%m%d")
 
 
 def main():
-    records = []
+    data_set = []
 
-    for keyword in file["keywords"]:
-        category1 = file["keyword_code"][keyword]
+    for subject in file["subjects"]:
+        category1 = file["subject_code"][subject]
 
-        if keyword == "보도자료" or keyword == "자동생성기사":
-            specific_keyword_list = [None]
+        if subject == "보도자료" or subject == "자동생성기사":
+            specific_subject_list = [None]
         else:
-            specific_keyword_list = file["specific_keywords"][keyword]
+            specific_subject_list = file["specific_subjects"][subject]
 
-        for specific_keyword in specific_keyword_list:
-            category2 = file["specific_keyword_code"][specific_keyword]
-            news_list = extract_news(today, category1, category2)
+        for specific_subject in specific_subject_list:
+            category2 = file["specific_subject_code"][specific_subject]
+            records = extract_news(today, category1, category2)
 
-            for record in news_list:
+            for record in records:
                 title = record[0]
                 url = record[1]
-                print([keyword, specific_keyword, remove_quot(title), url])
-                records.append([today, "DAUM", keyword, specific_keyword, remove_quot(title), url])
+                data_set.append([today, "DAUM", subject, specific_subject, remove_quot(title), url])
 
             time.sleep(1)
 
     with open("/home/jinyes/Daily-News-Keywords-Bot/Data/DAUM{}.txt".format(today), "w") as out:
-        for record in records:
-            raw = ','.join(record)
+        for data in data_set:
+            raw = ','.join(data)
             out.write(raw+'\n')
 
 
