@@ -1,5 +1,6 @@
 from pymongo import MongoClient
 from datetime import datetime
+import pymongo
 import logging
 
 pw = open("/home/jinyes/Daily-News-Keywords-Bot/pw.txt", 'r').read()
@@ -27,20 +28,22 @@ def to_bson(data):
 def main():
     dataset = []
     today = datetime.now().strftime("%Y%m%d")
+    collection = db[str(today)]
+    collection.create_index([("url", pymongo.ASCENDING)], name='url', unique=True)
     portal_list = ["NAVER", "DAUM"]
+
     for portal in portal_list:
         with open("/home/jinyes/Daily-News-Keywords-Bot/Data/{}{}.txt".format(portal, today), 'r') as records:
             for record in records:
                 doc = to_bson(record)
                 dataset.append(doc)
-
         try:
-            db.news.insert_many(dataset, ordered=False)
+            collection.insert_many(dataset, ordered=False)
         except Exception as error:
-            logging.info("[{}] - {}".format(datetime.now(), error))
+            logging.getLogger("[{}] - {}".format(datetime.now(), error))
 
 
 if __name__ == "__main__":
-    logging.info("[{}] - Start Producer")
+    logging.getLogger("[{}] - Start producer")
     main()
-    logging.info("[{}] - Success Produce")
+    logging.getLogger("[{}] - Success produce")
