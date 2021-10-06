@@ -6,7 +6,7 @@ from datetime import datetime
 
 # Consume Data from MongoDB
 today = datetime.now().strftime("%Y%m%d")
-bson_documents = consume("news", "news", today)
+bson_documents = consume("news", str(today), today)
 
 
 # Extract Noun using Okt
@@ -21,7 +21,6 @@ for bson in bson_noun_documents:
         if len(noun) == 1:
             continue
         processed_noun_list.append(noun)
-
     bson["title_noun_list"] = processed_noun_list
 
 
@@ -31,5 +30,8 @@ for bson in bson_noun_documents:
     es_json = to_document(bson, date=today)
     documents.append(es_json)
 
-insert_bulk(documents)
 
+if insert_bulk(documents):
+    logging.getLogger("[{}] ElasticSearch - Insert Success".format(datetime.now()))
+else:
+    logging.getLogger("[{}] ElasticSearch - Insert Fail".format(datetime.now()))

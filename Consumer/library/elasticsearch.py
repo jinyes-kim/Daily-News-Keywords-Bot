@@ -1,15 +1,16 @@
 from elasticsearch import Elasticsearch, helpers
 from datetime import datetime
-
+import logging
 client = Elasticsearch(host="jinyes-server", port=9200)
 
 
 def insert_bulk(documents):
     try:
         helpers.bulk(client, documents)
-        print("[{}]Insert Success".format(datetime.now()))
-    except Exception as Error:
-        print("[{}]Insert Fail\n{}".format(datetime.now(), Error))
+        return True
+    except Exception as error:
+        logging.getLogger("[{}] Error Log\n\n {}".format(datetime.now(), error))
+        return False
 
 
 def to_document(bson, date):
