@@ -12,32 +12,29 @@ file = json.load(open("/home/jinyes/Daily-News-Keywords-Bot/Crawler/Naver/info/c
 
 
 def main():
-    records = []
-    subject_list = file["keywords"]
-    for subject in subject_list:
-        specific_subject_list = file["specific_keywords"][subject]
-        for specific_subject in specific_subject_list:
-            category1 = file["keyword_code"][subject]
-            category2 = file["specific_keyword_code"][specific_subject]
-            try:
-                raw = extract_news(date=today, category1=category1, category2=category2)
-                news_list = extract_news_title(raw)
-            except Exception as Error:
-                continue
+    data_set = []
+    subject_list = file["subjects"]
 
-            for record in news_list:
+    for subject in subject_list:
+        specific_subject_list = file["specific_subjects"][subject]
+        for specific_subject in specific_subject_list:
+            category1 = file["subject_code"][subject]
+            category2 = file["specific_subject_code"][specific_subject]
+            records = extract_news(date=today, category1=category1, category2=category2)
+
+            for record in records:
                 title = remove_quot(record[0])
                 url = record[1].replace("amp;", '')
-                records.append([today, "NAVER", subject, specific_subject, title, url])
+                data_set.append([today, "NAVER", subject, specific_subject, title, url])
             time.sleep(1)
 
     with open("/home/jinyes/Daily-News-Keywords-Bot/Data/NAVER{}.txt".format(today), "w") as out:
-        for record in records:
-            raw = ','.join(record)
+        for data in data_set:
+            raw = ','.join(data)
             out.write(raw+'\n')
 
 
 if __name__ == "__main__":
-    logging.info("[{}] Start - NAVER news Crawler".format(datetime.now()))
+    logging.getLogger("[{}] Start - NAVER news Crawler".format(datetime.now()))
     main()
-    logging.info("[{}] Success - NAVER news Crawler".format(datetime.now()))
+    logging.getLogger("[{}] Success - NAVER news Crawler".format(datetime.now()))
