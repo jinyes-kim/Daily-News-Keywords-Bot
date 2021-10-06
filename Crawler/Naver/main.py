@@ -33,6 +33,8 @@ def main():
             raw = ','.join(data)
             out.write(raw+'\n')
 
+    logging.getLogger("[{}] Insert {}".format(datetime.now(), len(data_set)))
+
 
 if __name__ == "__main__":
     logging.getLogger("[{}] Start - NAVER news Crawler".format(datetime.now()))
