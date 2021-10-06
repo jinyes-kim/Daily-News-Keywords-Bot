@@ -52,14 +52,10 @@ def daum():
 
     for subject in file["keywords"]:
         if subject == "보도자료" or subject == "자동생성기사":
-            specific_subject_list = [None]
+            specific_subject_list = ["null"]
         else:
             specific_subject_list = file["specific_keywords"][subject]
 
-        """
-        엘라스틱 서치에 None이 어떤 형식으로 저장되는지 파악하고
-        line 65 수정
-        """
         for specific_subject in specific_subject_list:
             # Read Data
             records = request_data(today, "DAUM", subject, specific_subject)
