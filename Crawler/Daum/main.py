@@ -12,17 +12,21 @@ today = datetime.now().strftime("%Y%m%d")
 
 def main():
     data_set = []
+    subject_list = file["subjects"]
 
-    for subject in file["subjects"]:
+    for subject in subject_list:
         category1 = file["subject_code"][subject]
-
         if subject == "보도자료" or subject == "자동생성기사":
             specific_subject_list = [None]
         else:
             specific_subject_list = file["specific_subjects"][subject]
 
         for specific_subject in specific_subject_list:
-            category2 = file["specific_subject_code"][specific_subject]
+            if specific_subject is not None:
+                category2 = file["specific_subject_code"][specific_subject]
+            else:
+                category2 = None
+
             records = extract_news(today, category1, category2)
 
             for record in records:
@@ -39,6 +43,6 @@ def main():
 
 
 if __name__ == "__main__":
-    logging.info("[{}] Start - DAUM news Crawler".format(datetime.now()))
+    logging.getLogger("[{}] Start - DAUM news Crawler".format(datetime.now()))
     main()
-    logging.info("[{}] Success - DAUM news Crawler".format(datetime.now()))
+    logging.getLogger("[{}] Success - DAUM news Crawler".format(datetime.now()))
