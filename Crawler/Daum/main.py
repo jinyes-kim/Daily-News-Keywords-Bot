@@ -6,7 +6,7 @@ import time
 import logging
 
 # Static variable
-file = json.load(open("/home/jinyes/Daily-News-Keywords-Bot/Crawler/Naver/info/category.json", 'r'))
+file = json.load(open("/home/jinyes/Daily-News-Keywords-Bot/Crawler/Daum/info/category.json", 'r'))
 today = datetime.now().strftime("%Y%m%d")
 
 
