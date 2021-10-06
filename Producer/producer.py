@@ -39,11 +39,6 @@ def main():
                     collection.insert_one(doc)
                 except Exception as error:
                     logging.getLogger("[{}] - {}".format(datetime.now(), error))
-        # try:
-        #     collection.insert_many(data_set, ordered=False
-        # except Exception as error:
-        #     logging.getLogger("[{}] - {}".format(datetime.now(), error))
-        #
 
 
 if __name__ == "__main__":
