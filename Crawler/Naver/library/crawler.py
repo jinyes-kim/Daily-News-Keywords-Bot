@@ -38,6 +38,8 @@ def extract_news(date, category1, category2):
             pass
 
         for raw in merged_list:
+            if raw.select("img"):
+                continue
             title = raw.text.strip()
             url = raw.get("href")
             records.append([title, url])
