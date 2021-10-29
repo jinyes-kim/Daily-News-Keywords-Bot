@@ -34,8 +34,8 @@ def main():
     for portal in portal_list:
         with open("/home/jinyes/Daily-News-Keywords-Bot/Data/{}{}.txt".format(portal, today), 'r') as records:
             for record in records:
-                doc = to_bson(record)
                 try:
+                    doc = to_bson(record)
                     collection.insert_one(doc)
                 except Exception as error:
                     logging.getLogger("[{}] - {}".format(datetime.now(), error))
