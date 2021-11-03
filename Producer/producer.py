@@ -39,6 +39,8 @@ def main():
                     collection.insert_one(doc)
                 except Exception as error:
                     logging.getLogger("[{}] - {}".format(datetime.now(), error))
+                    with open("/home/jinyes/Daily-News-Keywords-Bot/Data/fail/{}{}.txt".format(portal, today), 'a') as fail:
+                        fail.write(record+'\n')
 
 
 if __name__ == "__main__":
