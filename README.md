@@ -26,6 +26,9 @@
 7. 슬랙 봇 - 엘라스틱 서치에 오늘 날짜를 기준으로 쿼리를 날려서 포털 및 세부 뉴스 별로 명사 카운팅 후 메세지 발송
 
 
+---
+
+
 
 ## 데이터 수집 & 변환
 - Extract - 2대의 크롤러는 각각 네이버, 다음 뉴스 서비스에서 오늘 날짜에 해당하는 뉴스 기사를 모두 수집한 뒤 텍스트 파일 형태로 저장합니다.
@@ -42,7 +45,10 @@
 데이터 관리에서의 이점을 위해 DB - News, Collections - date 형태로 관리합니다.
 
 
-<img width="450" alt="몽고디비_데이터웨어하우스" src="https://user-images.githubusercontent.com/54028026/140483802-9574571c-0c97-46b2-bf00-f9b069a08d62.png"> <img width="450" alt="몽고디비_컬렉션" src="https://user-images.githubusercontent.com/54028026/140483822-c1639c10-f188-4f62-a547-98a5ff9a82b1.png">
+<img width="1200" alt="몽고디비_데이터웨어하우스" src="https://user-images.githubusercontent.com/54028026/140483802-9574571c-0c97-46b2-bf00-f9b069a08d62.png"> 
+
+
+<img width="1200" alt="몽고디비_컬렉션" src="https://user-images.githubusercontent.com/54028026/140483822-c1639c10-f188-4f62-a547-98a5ff9a82b1.png">
 ---
 
 ## 데이터 마트 & 가공
