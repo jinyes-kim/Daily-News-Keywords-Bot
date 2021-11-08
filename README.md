@@ -78,7 +78,8 @@ ES 및 Kibana는 ELK 스택 학습 목적으로 본 프로젝트에 활용하고
 <img width="1432" alt="Service_Kibana_Discover" src="https://user-images.githubusercontent.com/54028026/140731500-3984af5e-5139-4e74-847b-33a5088c6820.png">
 
 키바나에서 엘라스틱 서치에 적재한 데이터를 확인할 수 있습니다. 
-리얼 타임 서비스가 아니므로 날짜 데이터는 시간( 값을 지정하지 않았습니다. 따라서 09시로 시간값이 고정됩니다.
+리얼 타임 서비스가 아니므로 날짜 데이터는 시간(Hour, Minutes, Seconds) 값을 지정하지 않았습니다. 따라서 09시로 시간값이 고정됩니다.
+
 
 ---
 
