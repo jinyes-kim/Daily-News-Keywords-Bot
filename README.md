@@ -37,6 +37,9 @@
 ### (3). Service
 가공한 데이터로 대시보드를 생성합니다. 또한 집계 작업을 거친 뒤 슬랙 채널에 알림 메시지를 전송합니다.
 
+### (4). Scheduling
+Airflow를 활용하여 배치 스케쥴링을 실시합니다.
+
 
 # ETL
 ## Extract & Transform
