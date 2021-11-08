@@ -86,7 +86,7 @@ ES 및 Kibana는 ELK 스택 학습 목적으로 본 프로젝트에 활용하고
 # 3. Service
 ## Keywords Dashboard
 
-엘라스틱 서치에 적재한 데이터를 키바나를 활용하여 시각화합니다. 몽고디비와 달리 인덱스 네이밍을 고정해서 자체적인 타임스탬프 필터링 기능을 사용해서 추가 작업 없이 업데이트됩니다. 
+엘라스틱 서치에 적재한 데이터를 키바나를 활용하여 시각화합니다. 몽고 디비와 달리 인덱스 네이밍을 고정하고 자체적인 타임스탬프 필터링 기능을 사용해서 추가 작업 없이 업데이트됩니다. 
 (Kibana 외에도 ES를 지원하는 시각화 솔루션이라면 자유롭게 활용할 수 있습니다. ex) Tableau )
 
 <img width="1400" alt="Service_Kibana_Visualization" src="https://user-images.githubusercontent.com/54028026/140729475-6b04bc05-2457-46c0-a4f6-82d8232021dd.png">
