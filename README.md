@@ -2,19 +2,13 @@
 
 ### INDEX
 
-[1. 프로젝트 소개](#프로젝트-소개)
+1. [프로젝트 소개](#프로젝트-소개)
 
-[2. 데이터 파이프라인](#데이터-파이프라인)
-
-[2-1 ETL](#etl)
-  
-[2-2 Procssing](#processing)
-  
-[2-3 Service](#service)
-  
-[2-4 Scheduling](#scheduling)
-
-
+2. [데이터 파이프라인](#데이터-파이프라인)
+    1. [ETL](#etl)
+    2. [Procssing](#processing)
+    3. [Service](#service)
+    4. [Scheduling](#scheduling)
   
 
 ---
