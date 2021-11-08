@@ -28,8 +28,6 @@
 # 데이터 파이프라인
 ![Daily-Keywords-Bot](https://user-images.githubusercontent.com/54028026/135100050-1a99aae9-1199-4c5f-8747-0822ce464cb9.png)
 
----
-
 ### (1). ETL
 네이버, 다음 뉴스를 수집합니다. 프로듀서는 로우 데이터를 bson 형태로 가공한 뒤 DW(Data Warehouse)에 적재합니다.
 
