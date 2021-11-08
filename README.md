@@ -91,6 +91,9 @@ ES 및 Kibana는 ELK 스택 학습 목적으로 본 프로젝트에 활용하고
 
 <img width="1400" alt="Service_Kibana_Visualization" src="https://user-images.githubusercontent.com/54028026/140729475-6b04bc05-2457-46c0-a4f6-82d8232021dd.png">
 
+초반에는 도넛 차트와 바 차트만 활용했으나 워드 클라우드 사용에 대한 피드백을 받아서 적용하게 되었습니다. 
+정확한 수치보다는 자주 등장하는 키워드에 대한 확인이 중요하므로 세부 섹션에 대한 시각화는 키바나에서 제공하는 태그 클라우드를 적극 활용합니다. 
+
 ---
 
 ## Notification Bot
