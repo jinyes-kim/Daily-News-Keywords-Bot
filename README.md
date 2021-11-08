@@ -6,7 +6,7 @@
 
 2. [데이터 파이프라인](#데이터-파이프라인)
     1. [ETL](#etl)
-    2. [Procssing](#processing)
+    2. [Processing](#processing)
     3. [Service](#service)
     4. [Scheduling](#scheduling)
   
