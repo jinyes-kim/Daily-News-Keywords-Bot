@@ -1,10 +1,11 @@
+import sys
+sys.path.append("/home/jinyes/Daily-News-Keywords-Bot/")
+
 from library.mongo_consumer import consume
 from library.noun_extractor import extract_noun
 from library.elasticsearch import *
 from dependency import default_time
-import sys
 
-sys.path.append("/home/jinyes/Daily-News-Keywords-Bot/")
 today = default_time.today
 
 # Consume Data from MongoDB

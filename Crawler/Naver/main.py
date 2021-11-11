@@ -1,11 +1,12 @@
+import sys
+sys.path.append("/home/jinyes/Daily-News-Keywords-Bot/")
+
 from library.preprocessing import *
 from library.crawler import *
 from dependency import default_time
 import json
 import time
-import sys
 
-sys.path.append("/home/jinyes/Daily-News-Keywords-Bot/")
 
 # Static Variable
 today = default_time.today

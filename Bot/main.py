@@ -1,11 +1,13 @@
+import sys
+sys.path.append("/home/jinyes/Daily-News-Keywords-Bot/")
+
 from library import slack
 from library.es_query import *
 from collections import defaultdict
 from dependency import default_time
 import json
-import sys
 
-sys.path.append("/home/jinyes/Daily-News-Keywords-Bot/")
+
 today = default_time.today
 
 
