@@ -1,7 +1,9 @@
 from dependency import default_time
 from pymongo import MongoClient
 import pymongo
+import sys
 
+sys.path.append("/home/jinyes/Daily-News-Keywords-Bot/")
 today = default_time.today
 pw = open("/home/jinyes/Daily-News-Keywords-Bot/dependency/pw.txt", 'r').read()
 client = MongoClient(host="jinyes-server",

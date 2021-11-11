@@ -5,7 +5,7 @@ import json
 import time
 import sys
 
-sys.path.append("/home/jinyes/Daily-News-Keywords-Bot")
+sys.path.append("/home/jinyes/Daily-News-Keywords-Bot/")
 
 # Static variable
 file = json.load(open("/home/jinyes/Daily-News-Keywords-Bot/Crawler/Daum/info/category.json", 'r'))

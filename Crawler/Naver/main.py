@@ -5,7 +5,7 @@ import json
 import time
 import sys
 
-sys.path.append("/home/jinyes/Daily-News-Keywords-Bot")
+sys.path.append("/home/jinyes/Daily-News-Keywords-Bot/")
 
 # Static Variable
 today = default_time.today
