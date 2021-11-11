@@ -92,7 +92,7 @@ def daum():
 
 
 def main():
-    cnt_time = default_time.datetime.strptime(today, "%Y년 %m월 %d일")
+    cnt_time = default_time.datetime.now().strftime("%Y년 %m월 %d일")
     try:
         naver()
     except Exception as error:
