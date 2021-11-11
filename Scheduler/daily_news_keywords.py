@@ -5,8 +5,8 @@ from airflow.operators.bash import BashOperator
 args = {'owner': 'Jinyes', 'start_date': days_ago(n=1)}
 
 dag = DAG(dag_id='Daily_News_Keywords',
-           default_args=args,
-           schedule_interval="5 23 * * * ")
+          default_args=args,
+          schedule_interval="5 23 * * * ")
 
 t1 = BashOperator(task_id="naver_crawler",
                   bash_command="python3 /home/jinyes/Daily-News-Keywords-Bot/Crawler/Naver/main.py",

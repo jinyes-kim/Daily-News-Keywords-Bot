@@ -15,7 +15,7 @@ def extract_news(date, category1, category2):
         target = "#mArticle > div.box_etc > ul > li"
         news_list = soup.select(target)
 
-        # Stop condition -> last page
+        # Stop condition -> Last Page
         if not news_list:
             break
 

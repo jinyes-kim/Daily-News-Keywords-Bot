@@ -1,13 +1,12 @@
 from library.preprocessing import *
 from library.crawler import *
-from datetime import datetime
+from dependency import default_time
 import json
 import time
-import logging
 
 
 # Static Variable
-today = datetime.now().strftime("%Y%m%d")
+today = default_time.today
 file = json.load(open("/home/jinyes/Daily-News-Keywords-Bot/Crawler/Naver/info/category.json", 'r'))
 
 
@@ -33,10 +32,10 @@ def main():
             raw = ','.join(data)
             out.write(raw+'\n')
 
-    logging.getLogger("[{}] Insert {}".format(datetime.now(), len(data_set)))
+    print("[{}] Insert {}".format(default_time.datetime.now(), len(data_set)))
 
 
 if __name__ == "__main__":
-    logging.getLogger("[{}] Start - NAVER news Crawler".format(datetime.now()))
+    print("[{}] Start - NAVER news Crawler".format(default_time.datetime.now()))
     main()
-    logging.getLogger("[{}] Success - NAVER news Crawler".format(datetime.now()))
+    print("[{}] Success - NAVER news Crawler".format(default_time.datetime.now()))

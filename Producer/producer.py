@@ -1,9 +1,10 @@
+from dependency import default_time
 from pymongo import MongoClient
-from datetime import datetime
 import pymongo
 import logging
 
-pw = open("/home/jinyes/Daily-News-Keywords-Bot/pw.txt", 'r').read()
+today = default_time.today
+pw = open("/home/jinyes/Daily-News-Keywords-Bot/dependency/pw.txt", 'r').read()
 client = MongoClient(host="jinyes-server",
                      port=27017,
                      username="jinyes",
@@ -26,7 +27,6 @@ def to_bson(data):
 
 
 def main():
-    today = datetime.now().strftime("%Y%m%d")
     collection = db[str(today)]
     collection.create_index([("url", pymongo.ASCENDING)], name='url', unique=True)
     portal_list = ["NAVER", "DAUM"]
@@ -38,12 +38,12 @@ def main():
                     doc = to_bson(record)
                     collection.insert_one(doc)
                 except Exception as error:
-                    logging.getLogger("[{}] - {}".format(datetime.now(), error))
+                    logging.getLogger("[{}] - {}".format(today, error))
                     with open("/home/jinyes/Daily-News-Keywords-Bot/Data/fail/{}{}.txt".format(portal, today), 'a') as fail:
                         fail.write(record+'\n')
 
 
 if __name__ == "__main__":
-    logging.getLogger("[{}] - Start producer")
+    print("[{}] - Start producer")
     main()
-    logging.getLogger("[{}] - Success produce")
+    print("[{}] - Success produce")

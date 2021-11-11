@@ -1,11 +1,11 @@
 from library.mongo_consumer import consume
 from library.noun_extractor import extract_noun
 from library.elasticsearch import *
-from datetime import datetime
+from dependency import default_time
 
+today = default_time.today
 
 # Consume Data from MongoDB
-today = datetime.now().strftime("%Y%m%d")
 bson_documents = consume("news", str(today), today)
 
 
@@ -32,6 +32,6 @@ for bson in bson_noun_documents:
 
 
 if insert_bulk(documents):
-    logging.getLogger("[{}] ElasticSearch - Insert Success".format(datetime.now()))
+    print("[{}] ElasticSearch - Insert Success".format(datetime.now()))
 else:
-    logging.getLogger("[{}] ElasticSearch - Insert Fail".format(datetime.now()))
+    print("[{}] ElasticSearch - Insert Fail".format(datetime.now()))

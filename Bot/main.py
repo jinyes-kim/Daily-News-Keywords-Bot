@@ -1,14 +1,14 @@
 from library import slack
 from library.es_query import *
 from collections import defaultdict
-from datetime import datetime
+from dependency import default_time
 import json
 
-today = datetime.now().strftime("%Y%m%d")
+today = default_time.today
 
 
 def naver():
-    slack.post_message("#news", "\n---{} 네이버 뉴스---".format(datetime.now().strftime("%Y년 %m월 %d일")))
+    slack.post_message("#news", "\n---{} 네이버 뉴스---".format(default_time.datetime.now().strftime("%Y년 %m월 %d일")))
 
     with open("/home/jinyes/Daily-News-Keywords-Bot/Crawler/Naver/info/category.json", 'r') as catregory:
         file = json.load(catregory)
@@ -46,7 +46,7 @@ def naver():
 
 
 def daum():
-    slack.post_message("#news", "\n---{} 다음 뉴스---".format(datetime.now().strftime("%Y년 %m월 %d일")))
+    slack.post_message("#news", "\n---{} 다음 뉴스---".format(default_time.datetime.now().strftime("%Y년 %m월 %d일")))
     with open("/home/jinyes/Daily-News-Keywords-Bot/Crawler/DAUM/info/category.json", 'r') as catregory:
         file = json.load(catregory)
 
@@ -88,14 +88,15 @@ def daum():
 
 
 def main():
+    cnt_time = default_time.datetime.strptime(today, "%Y년 %m월 %d일")
     try:
         naver()
     except Exception as error:
-        slack.post_message("#alert", "[{}]\n네이버 뉴스 슬랙 봇 이슈 발생\n\n{}".format(datetime.now(), error))
+        slack.post_message("#alert", "[{}]\n네이버 뉴스 슬랙 봇 이슈 발생\n\n{}".format(cnt_time, error))
     try:
         daum()
     except Exception as error:
-        slack.post_message("#alert", "[{}]\n다음 뉴스 슬랙 봇 이슈 발생\n\n{}".format(datetime.now(), error))
+        slack.post_message("#alert", "[{}]\n다음 뉴스 슬랙 봇 이슈 발생\n\n{}".format(cnt_time, error))
 
 
 if __name__ == "__main__":

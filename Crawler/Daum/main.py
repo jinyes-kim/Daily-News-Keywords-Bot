@@ -1,13 +1,13 @@
 from library.crawler import *
 from library.preprocessing import *
-from datetime import datetime
+from dependency import default_time
 import json
 import time
 import logging
 
 # Static variable
 file = json.load(open("/home/jinyes/Daily-News-Keywords-Bot/Crawler/Daum/info/category.json", 'r'))
-today = datetime.now().strftime("%Y%m%d")
+today = default_time.today
 
 
 def main():
@@ -42,10 +42,10 @@ def main():
             raw = ','.join(data)
             out.write(raw+'\n')
 
-    logging.getLogger("[{}] Insert {}".format(datetime.now(), len(data_set)))
+    logging.getLogger("[{}] Insert {}".format(today, len(data_set)))
 
 
 if __name__ == "__main__":
-    logging.getLogger("[{}] Start - DAUM news Crawler".format(datetime.now()))
+    logging.getLogger("[{}] Start - DAUM news Crawler".format(today))
     main()
-    logging.getLogger("[{}] Success - DAUM news Crawler".format(datetime.now()))
+    logging.getLogger("[{}] Success - DAUM news Crawler".format(today))
