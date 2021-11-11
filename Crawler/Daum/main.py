@@ -3,7 +3,9 @@ from library.preprocessing import *
 from dependency import default_time
 import json
 import time
-import logging
+import sys
+
+sys.path.append("/home/jinyes/Daily-News-Keywords-Bot")
 
 # Static variable
 file = json.load(open("/home/jinyes/Daily-News-Keywords-Bot/Crawler/Daum/info/category.json", 'r'))
@@ -42,10 +44,10 @@ def main():
             raw = ','.join(data)
             out.write(raw+'\n')
 
-    logging.getLogger("[{}] Insert {}".format(today, len(data_set)))
+    print(("[{}] Insert {}".format(today, len(data_set))))
 
 
 if __name__ == "__main__":
-    logging.getLogger("[{}] Start - DAUM news Crawler".format(today))
+    print("[{}] Start - DAUM news Crawler".format(today))
     main()
-    logging.getLogger("[{}] Success - DAUM news Crawler".format(today))
+    print("[{}] Success - DAUM news Crawler".format(today))

@@ -1,7 +1,6 @@
 from dependency import default_time
 from pymongo import MongoClient
 import pymongo
-import logging
 
 today = default_time.today
 pw = open("/home/jinyes/Daily-News-Keywords-Bot/dependency/pw.txt", 'r').read()
@@ -38,7 +37,7 @@ def main():
                     doc = to_bson(record)
                     collection.insert_one(doc)
                 except Exception as error:
-                    logging.getLogger("[{}] - {}".format(today, error))
+                    print("[{}] - {}".format(today, error))
                     with open("/home/jinyes/Daily-News-Keywords-Bot/Data/fail/{}{}.txt".format(portal, today), 'a') as fail:
                         fail.write(record+'\n')
 
